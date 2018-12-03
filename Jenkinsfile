@@ -13,8 +13,10 @@ pipeline {
         }
         stage('Stage 2') {
             steps {
-                echo 'this is stage 2'
-                echo 'wish you were here'
+                withEnv(['PATH+JENKINSHOME=/var/lib/jenkins/maven/apache-maven-3.6.0/bin']) {
+                    echo 'this is stage 2'
+                    sh 'java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App' 
+                }
             }
         }
     }
