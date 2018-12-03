@@ -7,6 +7,7 @@ pipeline {
                 withEnv(['PATH+JENKINSHOME=/var/lib/jenkins/maven/apache-maven-3.6.0/bin']) {
                     echo "PATH is: $PATH"
                     sh 'mvn --version'
+                    sh 'mvn package'
                 }
             }
         }
